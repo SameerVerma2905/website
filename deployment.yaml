@@ -19,3 +19,9 @@ spec:
         image: sameerverma2905/project2
         ports:
         - containerPort: 80
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+      nodeSelector:
+        !node-role.kubernetes.io/control-plane: ""
